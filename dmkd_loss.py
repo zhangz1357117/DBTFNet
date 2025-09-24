@@ -43,13 +43,3 @@ def dmkd_loss(output1, output2, target, epoch, temperature=2.0, smoothing_factor
     total_loss = lambda_m * bce_loss + (1 - lambda_m) * dmkd_loss
 
     return total_loss
-
-
-# Example usage:
-output1 = torch.randn(32, 10)  # Example: Output from first branch (32 samples, 10 classes)
-output2 = torch.randn(32, 10)  # Example: Output from second branch (32 samples, 10 classes)
-target = torch.randint(0, 2, (32, 10)).float()  # Example: Ground truth (binary labels)
-epoch = 5  # Example: Current epoch
-
-loss = dmkd_loss(output1, output2, target, epoch)
-print(f"DMKD Loss: {loss.item()}")
